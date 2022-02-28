@@ -1,10 +1,11 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Linq;
 
 namespace OOP_Datatable_Dependency_Injection
 {
-    public class DataTableControl : IDataTableControl
+    public class DataTableControl :  IDataTableControl
     {
         IExcelControl _excelControl;
         public DataTableControl(IExcelControl excelControl)
@@ -14,18 +15,40 @@ namespace OOP_Datatable_Dependency_Injection
         //Max length for error message
         const int maxLength = 200;
         //Populate Datatable with data from .csv/.xlsx file
-        public DataTable tablePopulate(DataTable tbl, int startingRow, string fileType)
+        public string getFile(string fileType)
         {
-            //Find PO Excel Doc, insert into DataTable
+            //Find Excel Doc, insert into DataTable
             string[] files = Directory.GetFiles(Directory.GetCurrentDirectory(), $"*{fileType}");
+            string input = "";
             if (files.Length < 1)
             {
                 Console.WriteLine("No files Found, Press any key to exit...");
                 Console.ReadKey();
                 System.Environment.Exit(1);
             }
+            else if (files.Length > 1)
+            {
+                Console.WriteLine("Multiple Files found, please enter the number next to the file you want to process");
+                for (int i = 0; i < files.Length; i++)
+                    Console.WriteLine($"{i} - {Path.GetFileName(files[i])}");
+                input = Console.ReadLine();
+                while (!input.All(char.IsDigit) || Convert.ToInt32(input.ToString()) >= files.Length)
+                {
+                    Console.WriteLine("Invalid number or number is out of range");
+                    Console.WriteLine("Enter the number next to the file you want to process");
+                    input = Console.ReadLine();
+                }
+            }
+            if (files.Length == 1)
+                return files[0];
+            else
+                return input;
+        }
+        public DataTable tablePopulate(DataTable tbl, int startingRow, string fileType)
+        {
+            string file = getFile(fileType);
             int sheet = 1;
-            object[,] excelValues = _excelControl.excelMasterStart(files[0], sheet);
+            object[,] excelValues = _excelControl.excelMasterStart(file, sheet);
             int success = 0;
             excelValues = _excelControl.filterExcel(excelValues, startingRow);
             //Timer for Conversion Process

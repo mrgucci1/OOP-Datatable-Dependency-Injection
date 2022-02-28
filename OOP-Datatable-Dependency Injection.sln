@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP-Datatable-Dependency Injection", "OOP-Datatable-Dependency Injection\OOP-Datatable-Dependency Injection.csproj", "{A2F5CDF7-9D2E-4019-B5E1-7D63FB493A12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OOP-Datatable-Dependency Injection", "OOP-Datatable-Dependency Injection\OOP-Datatable-Dependency Injection.csproj", "{A2F5CDF7-9D2E-4019-B5E1-7D63FB493A12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP-DataTable-Dependency-Injection.Tests", "OOP-DataTable-Dependency-Injection.Tests\OOP-DataTable-Dependency-Injection.Tests.csproj", "{50B6EA5F-B5F2-4E93-AF5A-2FFE2387CE8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{A2F5CDF7-9D2E-4019-B5E1-7D63FB493A12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2F5CDF7-9D2E-4019-B5E1-7D63FB493A12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2F5CDF7-9D2E-4019-B5E1-7D63FB493A12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50B6EA5F-B5F2-4E93-AF5A-2FFE2387CE8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50B6EA5F-B5F2-4E93-AF5A-2FFE2387CE8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50B6EA5F-B5F2-4E93-AF5A-2FFE2387CE8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50B6EA5F-B5F2-4E93-AF5A-2FFE2387CE8A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
